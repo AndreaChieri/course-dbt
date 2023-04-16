@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: Info about addresses in the platform, such a address, zipcode, state, country.
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique 
+
+  - name: stg_events
+    description: Info about events that happened on the platform, such as event_type, page_url, user, session, and more. 
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique 
+  
+  - name: stg_order_items
+    description: Info about which items and how many have been ordered for every single order. It contains info such as order_id, product_id, quantity. 
+
+  - name: stg_orders 
+    description: Info about orders, such as user, creation date, promo applied, order cost, amount spent, tracking_id, delivery info, status.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique 
+  
+  - name: stg_products
+    description: Info about products, such as name, price, inventory.
+
+  - name: stg_promos
+    description: Info about promotions, such as discount and status.
+
+  - name: stg_users
+    desctiption: Info about users, such as name, last name, email, phone number, updated date, creation date, and address (id).
