@@ -47,4 +47,12 @@ What assumptions are you making about each model? (i.e. why are you adding each 
 Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
 - No, everything was successful
 
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Run the product snapshot model using dbt snapshot and query it in snowflake to see how the data has changed since last week. 
 
+Which products had their inventory change from week 1 to week 2?
+
+4cda01b9-62e2-46c5-830f-b7f262a58fb1	Pothos
+be49171b-9f72-4fc9-bf7a-9a52e259836b	Monstera
+55c6a062-5f4a-4a8b-a8e5-05ea5e6715a3	Philodendron
+fb0e8be7-5ac4-4a76-a1fa-2cc4bf0b2d80	String of pearls
