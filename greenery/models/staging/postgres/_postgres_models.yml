@@ -4,35 +4,85 @@ models:
   - name: stg_addresses
     description: Info about addresses in the platform, such a address, zipcode, state, country.
     columns:
-      - name: address_id
+      - name: addresses_address_id
         tests:
           - not_null
           - unique 
+      - name: country
+        tests:
+          - not_null
 
   - name: stg_events
     description: Info about events that happened on the platform, such as event_type, page_url, user, session, and more. 
     columns:
-      - name: event_id
+      - name: events_event_id
         tests:
           - not_null
           - unique 
+      - name: events_session_id
+        tests:
+          - not_null
+      - name: events_created_at
+        tests:
+          - not_null
+      - name: events_event_type
+        tests:
+          - not_null
   
   - name: stg_order_items
     description: Info about which items and how many have been ordered for every single order. It contains info such as order_id, product_id, quantity. 
+    columns:
+      - name: order_items_order_id
+        tests:
+          - not_null
+      - name: order_items_product_id
+        tests:
+          - not_null
+      - name: order_items_quantity
+        tests:
+          - positive_values 
 
   - name: stg_orders 
     description: Info about orders, such as user, creation date, promo applied, order cost, amount spent, tracking_id, delivery info, status.
     columns:
-      - name: order_id
+      - name: orders_order_id
         tests:
           - not_null
           - unique 
+      - name: orders_order_total
+        tests:
+          - positive_values 
   
   - name: stg_products
     description: Info about products, such as name, price, inventory.
+    columns:
+      - name: products_product_id
+        tests:
+          - not_null
+          - unique
+      - name: inventory
+        tests:
+          - positive_values
 
   - name: stg_promos
     description: Info about promotions, such as discount and status.
+    columns:
+      - name: promos_promo_id
+        tests:
+          - not_null
+          - unique
+      - name: discount
+        tests:
+          - positive_values
+      - name: status
+        tests:
+          - not_null
+
 
   - name: stg_users
     desctiption: Info about users, such as name, last name, email, phone number, updated date, creation date, and address (id).
+    columns:
+      - name: users_user_id
+        tests:
+          - not_null
+          - unique

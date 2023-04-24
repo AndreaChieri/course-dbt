@@ -5,7 +5,7 @@
 }}
 
 SELECT
-  product_id
+  product_id AS products_product_id
   , name
   , price 
   , inventory

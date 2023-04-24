@@ -5,7 +5,7 @@
 }}
 
 SELECT
-  address_id
+  address_id AS addresses_address_id
   , address
   , zipcode 
   , state
