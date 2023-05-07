@@ -44,6 +44,9 @@ models:
 
   - name: stg_orders 
     description: Info about orders, such as user, creation date, promo applied, order cost, amount spent, tracking_id, delivery info, status.
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "orders_created_at <= orders_estimated_delivery_at"
     columns:
       - name: orders_order_id
         tests:
@@ -52,6 +55,10 @@ models:
       - name: orders_order_total
         tests:
           - positive_values 
+      - name: orders_created_at
+        tests:
+            - not_null
+      - name: orders_estimated_delivery_at
   
   - name: stg_products
     description: Info about products, such as name, price, inventory.
